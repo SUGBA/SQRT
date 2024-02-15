@@ -4,7 +4,7 @@ using System.Text.RegularExpressions;
 
 namespace SQRT.Services
 {
-    public class SqrtWorker
+    public class SqrtWorker : ISqrtWorker
     {
         public string CalculateSquareRoot(string input, int precision)
         {
@@ -74,7 +74,7 @@ namespace SQRT.Services
             }
             else
             {
-                string result = Math.Round(complex.Real, precision).ToString() + "-" + Math.Round(complex.Imaginary, precision).ToString() + "i";
+                string result = Math.Round(complex.Real, precision).ToString() + Math.Round(complex.Imaginary, precision).ToString() + "i";
                 return result;
             }
         }
