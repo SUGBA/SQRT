@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Extracting the square root</title>
+    <link rel="stylesheet" href="~/css/style.css" asp-append-version="true">
+</head>
+<body>
+    <div class="header">
+        <h1>Square Roots Calculator</h1>
+        <div class="choose_language">
+            <h3>Select a language</h3>
+            <div class="ref">
+                <a asp-controller="Main" asp-action="SetLanguage" asp-route-languageId=@((int)(LanguageEnum.Ru))>Русский</a>
+                <a asp-controller="Main" asp-action="SetLanguage" asp-route-languageId=@((int)(LanguageEnum.Ch))>中文</a>
+                <a asp-controller="Main" asp-action="SetLanguage" asp-route-languageId=@((int)(LanguageEnum.Es))>Español</a>
+            </div>
+        </div>
+    </div>
+    <section>
+        <div class="main">
+            <label>Enter the number to extract the square root</label>
+            <input placeholder="Enter a number" class="field" />
+            <select>
+                <option hidden>Seleccione el número de decimales</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+            </select>
+            <p class="result">Result:</p>
+            <input value="" />
+        </div>
+    </section>
+</body>
+</html>

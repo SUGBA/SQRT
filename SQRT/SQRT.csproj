@@ -7,8 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Models\RuDTO\" />
-    <Folder Include="Models\EnDTO\" />
+    <None Include="wwwroot\css\style.css" />
   </ItemGroup>
 
 </Project>

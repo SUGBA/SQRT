@@ -24,12 +24,12 @@ namespace SQRT
 
             app.UseSession();
 
+            app.UseStaticFiles();
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
             app.UseRouting();
-
-            app.UseAuthorization();
 
             app.MapControllerRoute(
                 name: "default",
