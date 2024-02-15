@@ -4,7 +4,7 @@ using System.Text.RegularExpressions;
 
 namespace SQRT.Services
 {
-    public class SqrtWorker
+    public class SqrtWorker : ISqrtWorker
     {
         public string CalculateSquareRoot(string input, int precision)
         {
@@ -49,7 +49,7 @@ namespace SQRT.Services
                 return "Введите число в корректном формате";
             }
         }
-        public static bool IsComplexNumber(string input)
+        public bool IsComplexNumber(string input)
         {
             // Регулярное выражение для проверки строки комплексного числа в формате "a+bi" или "a-bi"
             string pattern = @"^\s*([-+]?\d*\.?\d+)\s*([-+])\s*(\d*\.?\d*)i\s*$";
@@ -60,7 +60,7 @@ namespace SQRT.Services
             return match.Success;
         }
 
-        public static string ConvertComplexToString(Complex complex, int precision)
+        public string ConvertComplexToString(Complex complex, int precision)
         {
             if (complex.Imaginary == 0)
             {
