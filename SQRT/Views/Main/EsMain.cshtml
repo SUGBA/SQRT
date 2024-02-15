@@ -1,4 +1,5 @@
-﻿﻿<!DOCTYPE html>
+﻿@model MainDto
+﻿<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -19,13 +20,13 @@
     </div>
     <section>
         <div class="main">
-            <form>
+            <form asp-controller="Main" asp-action="Calculate">
                 <label>Ingrese un número para extraer la raíz cuadrada</label>
-                <input placeholder="Introduce el número" class="field" />
+                <input placeholder="Introduce el número" class="field" asp-for="Value" />
                 <label>Introduzca el número de decimales</label>
-                <input placeholder="Lugares decimales" class="field" />
+                <input placeholder="Lugares decimales" class="field" asp-for="DigitNumber" />
                 <button class="shine-button">Calcular</button>
-                <p class="result">Resultado:</p>
+                <p class="result">Resultado:@Model.Result</p>
                 <input value="" />
             </form>
         </div>

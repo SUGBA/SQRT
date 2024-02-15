@@ -1,3 +1,5 @@
+using SQRT.Services;
+
 namespace SQRT
 {
     public class Program
@@ -11,6 +13,8 @@ namespace SQRT
 
             builder.Services.AddDistributedMemoryCache();   // добавляем IDistributedMemoryCache
             builder.Services.AddSession();                  // добавляем сервисы сессии
+
+            builder.Services.AddTransient<ISqrtWorker, SqrtWorker>();
 
             var app = builder.Build();
 
@@ -34,7 +38,7 @@ namespace SQRT
             app.MapControllerRoute(
                 name: "default",
                 pattern: "{controller}/{action}/{id?}",
-                defaults: new { controller = "Main", action = "MainView"});
+                defaults: new { controller = "Main", action = "MainView" });
 
             app.Run();
         }

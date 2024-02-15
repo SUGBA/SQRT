@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@model MainDto
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -19,13 +20,13 @@
     </div>
     <section>
         <div class="main">
-            <form>
+            <form asp-controller="Main" asp-action="Calculate">
                 <label>Введите число для извлечения квадратного корня</label>
-                <input placeholder="Введите число" class="field" />
+                <input placeholder="Введите число" class="field" asp-for="Value" />
                 <label>Введите количество знаков после запятой</label>
-                <input placeholder="Знаков после запятой" class="field" />
+                <input placeholder="Знаков после запятой" class="field" asp-for="DigitNumber" />
                 <button class="shine-button">Вычислить</button>
-                <p class="result">Результат:</p>
+                <p class="result">Результат:@Model.Result</p>
                 <input value="" />
             </form>
         </div>

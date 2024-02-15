@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@model MainDto
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -11,21 +12,21 @@
         <div class="choose_language">
             <h3>选择一种语言</h3>
             <div class="ref">
-                <a asp-controller="Main" asp-action="SetLanguage" asp-route-languageId=@LanguageEnum.Ru>Русский</a>
-                <a asp-controller="Main" asp-action="SetLanguage" asp-route-languageId=@LanguageEnum.En>English</a>
-                <a asp-controller="Main" asp-action="SetLanguage" asp-route-languageId=@LanguageEnum.Es>Español</a>
+                <a asp-controller="Main" asp-action="SetLanguage" asp-route-languageId=@((int)(LanguageEnum.Ru))>Русский</a>
+                <a asp-controller="Main" asp-action="SetLanguage" asp-route-languageId=@((int)(LanguageEnum.En))>English</a>
+                <a asp-controller="Main" asp-action="SetLanguage" asp-route-languageId=@((int)(LanguageEnum.Es))>Español</a>
             </div>
         </div>
     </div>
     <section>
         <div class="main">
-            <form>
+            <form asp-controller="Main" asp-action="Calculate">
                 <label>输入一个数字以提取平方根</label>
-                <input placeholder="输入号码" class="field" />
+                <input placeholder="输入号码" class="field" asp-for="Value"/>
                 <label>输入小数位数</label>
-                <input placeholder="小数位" class="field" />
+                <input placeholder="小数位" class="field" asp-for="DigitNumber" />
                 <button class="shine-button">计算</button>
-                <p class="result">结果:</p>
+                <p class="result">结果:@Model.Result</p>
                 <input value="" />
             </form>
         </div>

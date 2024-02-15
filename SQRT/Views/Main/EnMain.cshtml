@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@model MainDto
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -19,13 +20,13 @@
     </div>
     <section>
         <div class="main">
-            <form>
+            <form asp-controller="Main" asp-action="Calculate">
                 <label>Enter a number to extract the square root</label>
-                <input placeholder="Enter the number" class="field" />
+                <input placeholder="Enter the number" class="field" asp-for="Value" />
                 <label>Enter the number of decimal places</label>
-                <input placeholder="Decimal places" class="field" />
+                <input placeholder="Decimal places" class="field" asp-for="DigitNumber" />
                 <button class="shine-button">Calculate</button>
-                <p class="result">Result:</p>
+                <p class="result">Result:@Model.Result</p>
                 <input value="" />
             </form>
         </div>
