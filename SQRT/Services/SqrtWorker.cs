@@ -8,6 +8,10 @@ namespace SQRT.Services
     {
         public string CalculateSquareRoot(string input, int precision)
         {
+            if (precision > 10)
+            {
+                precision = 10;
+            }
             bool flag;
             if (String.IsNullOrEmpty(input))
             {
@@ -62,20 +66,36 @@ namespace SQRT.Services
 
         public string ConvertComplexToString(Complex complex, int precision)
         {
-            if (complex.Imaginary == 0)
+            if (complex.Real > 0 || complex.Real < 0)
             {
-                string result = Math.Round(complex.Real, precision).ToString();
-                return result;
-            }
-            else if (complex.Imaginary > 0)
-            {
-                string result = Math.Round(complex.Real, precision).ToString() + "+" + Math.Round(complex.Imaginary, precision).ToString() + "i";
-                return result;
+                if (complex.Imaginary == 0)
+                {
+                    string result = Math.Round(complex.Real, precision).ToString();
+                    return result;
+                }
+                else if (complex.Imaginary > 0)
+                {
+                    string result = Math.Round(complex.Real, precision).ToString() + "+" + Math.Round(complex.Imaginary, precision).ToString() + "i";
+                    return result;
+                }
+                else
+                {
+                    string result = Math.Round(complex.Real, precision).ToString() + Math.Round(complex.Imaginary, precision).ToString() + "i";
+                    return result;
+                }
             }
             else
             {
-                string result = Math.Round(complex.Real, precision).ToString() + "-" + Math.Round(complex.Imaginary, precision).ToString() + "i";
-                return result;
+                if (complex.Imaginary == 0)
+                {
+                    string result = "0";
+                    return result;
+                }
+                else
+                {
+                    string result = Math.Round(complex.Imaginary, precision).ToString() + "i";
+                    return result;
+                }
             }
         }
     }
